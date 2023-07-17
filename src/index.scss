@@ -54,7 +54,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-body{
+body {
   background-color: wheat;
 }
 
@@ -69,7 +69,7 @@ span.button-note {
   align-items: center;
   text-align: center;
 
-  p{
+  p {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
@@ -81,10 +81,20 @@ span.button-note {
   }
 }
 
+.lost-focus-message {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100vw;
+  background-color: yellow;
+  font-size: 24px;
+}
+
 .kalimba-layout {
   display: grid;
   grid: repeat(2, 80px) / auto-flow;
   width: 100vw;
+  grid-gap: 10px;
 }
 
 .kalimba-btn:not(:active) {
@@ -100,7 +110,7 @@ span.button-note {
 .kalimba-btn:active,
 .kalimba-btn:hover {
   animation-name: backgroundColorPalette;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-direction: alternate;
   animation-timing-function: linear;
