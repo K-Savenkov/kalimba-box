@@ -7,12 +7,10 @@ function App() {
 
 
   return isKalimbaOn ?
-    <div className="card">
-        <KalimbaButtons />
-    </div>
+    <KalimbaButtons />
     : <div className='intro'>
       <p>
-        This site will play kalimba sounds on hover cursor <br />and by pressing "q-p" 'a-l' keyboard layout<br />
+        This site will play kalimba sounds on hover cursor <br />and/or by pressing "q-p" 'a-l' keyboard layout<br />
       </p>
       <button type="button" onClick={() => { setIsKalimbaOn(true) }}>Click HERE turn on kalimba keyboard</button>
     </div>
