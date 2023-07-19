@@ -1,9 +1,5 @@
 import { useWindowEvent } from '../../hooks/useWindowEvent.ts';
-import Note from './src/types.ts'
-
-interface KalimbaProps {
-  onKalimbaPlay: (note: Note) => void
-}
+import { useKalimba } from '../../hooks/useKalimba'
 
 
 type NoteButton = {
@@ -115,10 +111,12 @@ const noteButtons: NoteButton[] = [
   }
 ];
 
-function KalimbaButtons(props: KalimbaProps) {
-  const { onKalimbaPlay } = props
+function KalimbaButtons() {
+  const { kalimba } = useKalimba()
+
+  const onKalimbaPlay = (note: string) => kalimba?.play(note)
   useWindowEvent('keydown', (ev) => {
-    const hasPressedKey = noteButtons.find((noteBtn) =>  noteBtn.listenKey === ev.code)
+    const hasPressedKey = noteButtons.find((noteBtn) => noteBtn.listenKey === ev?.code)
     if (!hasPressedKey) return;
 
     onKalimbaPlay(hasPressedKey.note)
@@ -126,17 +124,17 @@ function KalimbaButtons(props: KalimbaProps) {
 
   return <div className="kalimba-layout">
     {noteButtons.map((noteButton) => (
-    <button 
-      key={noteButton.listenKey}
-      className="kalimba-btn" 
-      onMouseEnter={() => onKalimbaPlay(noteButton.note)}
-      onKeyDown={(ev)=> {
-        if(ev.code === noteButton.listenKey) onKalimbaPlay(noteButton.note);
-      }}
-    >
-      <span className="key-name">{noteButton.name}</span>
-      <span className="button-note">{noteButton.note}</span>
-    </button>))}
+      <button
+        key={noteButton.listenKey}
+        className="kalimba-btn"
+        onMouseEnter={() => onKalimbaPlay(noteButton.note)}
+        onKeyDown={(ev) => {
+          if (ev.code === noteButton.listenKey) onKalimbaPlay(noteButton.note);
+        }}
+      >
+        <span className="key-name">{noteButton.name}</span>
+        <span className="button-note">{noteButton.note}</span>
+      </button>))}
   </div>
 }
 

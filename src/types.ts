@@ -1,6 +1,6 @@
-type Note = "A" | "B" | "C" | "D" | "E" | "F" | "G";
+export type Note = "A" | "B" | "C" | "D" | "E" | "F" | "G";
 
-type Pitch = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+export type Pitch = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 export interface Octave {
   note: Note
