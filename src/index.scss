@@ -58,6 +58,10 @@ body{
   background-color: wheat;
 }
 
+span.button-note {
+  color: red;
+}
+
 .intro {
   width: 100vw;
   display: flex;
@@ -83,7 +87,7 @@ body{
   width: 100vw;
 }
 
-.kalimba-btn {
+.kalimba-btn:not(:active) {
   background-color: #f9f9f9;
   display: flex;
   align-items: center;
@@ -92,6 +96,8 @@ body{
   flex-direction: column;
 }
 
+.kalimba-btn:focus,
+.kalimba-btn:active,
 .kalimba-btn:hover {
   animation-name: backgroundColorPalette;
   animation-duration: .5s;

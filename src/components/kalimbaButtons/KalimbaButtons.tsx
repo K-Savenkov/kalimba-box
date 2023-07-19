@@ -1,5 +1,6 @@
 import { useWindowEvent } from '../../hooks/useWindowEvent.ts';
 import { useKalimba } from '../../hooks/useKalimba'
+import { useRef } from 'react';
 
 
 type NoteButton = {
@@ -113,29 +114,42 @@ const noteButtons: NoteButton[] = [
 
 function KalimbaButtons() {
   const { kalimba } = useKalimba()
+  const buttonsRefsMap = useRef<{ [key: NoteButton['note']]: HTMLButtonElement | null }>({});
 
-  const onKalimbaPlay = (note: string) => kalimba?.play(note)
+  const onKalimbaPlay = (note: string) => kalimba?.play(note);
+
   useWindowEvent('keydown', (ev) => {
     const hasPressedKey = noteButtons.find((noteBtn) => noteBtn.listenKey === ev?.code)
     if (!hasPressedKey) return;
 
     onKalimbaPlay(hasPressedKey.note)
+    buttonsRefsMap.current?.[hasPressedKey.note]?.blur()
+    buttonsRefsMap.current?.[hasPressedKey.note]?.focus()
   })
 
-  return <div className="kalimba-layout">
-    {noteButtons.map((noteButton) => (
-      <button
-        key={noteButton.listenKey}
-        className="kalimba-btn"
-        onMouseEnter={() => onKalimbaPlay(noteButton.note)}
-        onKeyDown={(ev) => {
-          if (ev.code === noteButton.listenKey) onKalimbaPlay(noteButton.note);
-        }}
-      >
-        <span className="key-name">{noteButton.name}</span>
-        <span className="button-note">{noteButton.note}</span>
-      </button>))}
-  </div>
+  return (
+    <div className="card">
+      <div className="kalimba-layout">
+        {noteButtons.map((noteButton) => (
+          <button
+            key={noteButton.listenKey}
+            className="kalimba-btn"
+            onMouseEnter={() => onKalimbaPlay(noteButton.note)}
+            onKeyDown={(ev) => {
+              if (ev.code === noteButton.listenKey) onKalimbaPlay(noteButton.note);
+            }}
+            ref={(el) => {
+              if (buttonsRefsMap.current) {
+                buttonsRefsMap.current[noteButton.note] = el
+              }
+            }}
+          >
+            <span className="key-name">{noteButton.name}</span>
+            <span className="button-note">{noteButton.note}</span>
+          </button>))}
+      </div>
+    </div>
+  )
 }
 
 export default KalimbaButtons

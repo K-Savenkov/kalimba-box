@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useEvent } from "./useEvent";
 
-export function useWindowEvent(type: string, cb: (event: Event) => void) {
+export function useWindowEvent(type: string, cb: (event: KeyboardEvent) => void) {
   const eventCb = useEvent(cb);
 
   useEffect(() => {
