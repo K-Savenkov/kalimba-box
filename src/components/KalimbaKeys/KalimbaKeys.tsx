@@ -1,6 +1,7 @@
-import { useWindowEvent } from '../../hooks/useWindowEvent.ts';
-import { useKalimba } from '../../hooks/useKalimba'
+import { useWindowEvent } from '../../hooks/useWindowEvent.js';
+import { useKalimba } from '../../hooks/useKalimba.js'
 import { useRef } from 'react';
+import { useWindowFocus } from '../../hooks/useWindowFocus.js';
 
 
 type NoteButton = {
@@ -114,6 +115,7 @@ const noteButtons: NoteButton[] = [
 
 function KalimbaButtons() {
   const { kalimba } = useKalimba()
+  const isFocused = useWindowFocus();
   const buttonsRefsMap = useRef<{ [key: NoteButton['note']]: HTMLButtonElement | null }>({});
 
   const onKalimbaPlay = (note: string) => kalimba?.play(note);
@@ -129,6 +131,10 @@ function KalimbaButtons() {
 
   return (
     <div className="card">
+      {!isFocused && <div className='lost-focus-message'>
+        page is lost focus / key press is inactive <br />
+        <b>Please click on the page to make it active</b>
+      </div>}
       <div className="kalimba-layout">
         {noteButtons.map((noteButton) => (
           <button

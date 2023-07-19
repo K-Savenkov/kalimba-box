@@ -1,5 +1,5 @@
 
-import KalimbaButtons from './components/kalimbaButtons/KalimbaButtons'
+import KalimbaKeys from './components/KalimbaKeys/KalimbaKeys'
 import { useState } from 'react'
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
 
   return isKalimbaOn ?
-    <KalimbaButtons />
+    <KalimbaKeys />
     : <div className='intro'>
       <p>
         This site will play kalimba sounds on hover cursor <br />and/or by pressing "q-p" 'a-l' keyboard layout<br />
