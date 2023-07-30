@@ -92,9 +92,17 @@ span.button-note {
 
 .kalimba-layout {
   display: grid;
-  grid: repeat(2, 80px) / auto-flow;
+  grid: repeat(3, 80px) / auto-flow;
   width: 100vw;
   grid-gap: 10px;
+}
+
+.kalimba-btn.kalimba-btn:nth-child(3n - 1) {
+  justify-self: center;
+}
+
+.kalimba-btn:nth-child(3n) {
+  justify-self: flex-end;
 }
 
 .kalimba-btn:not(:active) {
