@@ -22,6 +22,11 @@ const noteButtons: NoteButton[] = [
     note: "B5",
   },
   {
+    listenKey: "KeyZ",
+    name: 'Z',
+    note: "B#5",
+  },
+  {
     listenKey: "KeyW",
     name: 'W',
     note: "G#5"
@@ -30,6 +35,11 @@ const noteButtons: NoteButton[] = [
     listenKey: "KeyS",
     name: 'S',
     note: "E5"
+  }, 
+  {
+    listenKey: "KeyX",
+    name: 'X',
+    note: "E#5"
   },
   {
     listenKey: "KeyE",
@@ -42,6 +52,11 @@ const noteButtons: NoteButton[] = [
     note: "A4"
   },
   {
+    listenKey: "KeyC",
+    name: 'C',
+    note: "A#4"
+  },
+  {
     listenKey: "KeyR",
     name: 'R',
     note: "F#4"
@@ -50,6 +65,11 @@ const noteButtons: NoteButton[] = [
     listenKey: "KeyF",
     name: 'F',
     note: "D4"
+  },
+  {
+    listenKey: "KeyV",
+    name: 'V',
+    note: "D#4"
   },
   {
     listenKey: "KeyT",
@@ -62,6 +82,11 @@ const noteButtons: NoteButton[] = [
     note: "C3"
   },
   {
+    listenKey: "KeyB",
+    name: 'B',
+    note: "C#3"
+  },
+  {
     listenKey: "KeyY",
     name: 'Y',
     note: "E#4"
@@ -70,6 +95,11 @@ const noteButtons: NoteButton[] = [
     listenKey: "KeyH",
     name: 'H',
     note: "E3"
+  },
+  {
+    listenKey: "KeyN",
+    name: 'N',
+    note: "E#3"
   },
   {
     listenKey: "KeyU",
@@ -82,6 +112,11 @@ const noteButtons: NoteButton[] = [
     note: "G#4"
   },
   {
+    listenKey: "KeyM",
+    name: 'M',
+    note: "B#4"
+  },
+  {
     listenKey: "KeyI",
     name: 'I',
     note: "B4"
@@ -90,6 +125,11 @@ const noteButtons: NoteButton[] = [
     listenKey: "KeyK",
     name: 'K',
     note: "D5"
+  },
+  {
+    listenKey: "Comma",
+    name: ',',
+    note: "D#5"
   },
   {
     listenKey: "KeyO",
@@ -102,6 +142,11 @@ const noteButtons: NoteButton[] = [
     note: "A5"
   },
   {
+    listenKey: "Period",
+    name: '.',
+    note: "A#5"
+  },
+  {
     listenKey: "KeyP",
     name: 'P',
     note: "C#6"
@@ -110,6 +155,11 @@ const noteButtons: NoteButton[] = [
     listenKey: "Semicolon",
     name: ';',
     note: "E6"
+  },
+  {
+    listenKey: "Slash",
+    name: '/',
+    note: "E#6"
   }
 ];
 
